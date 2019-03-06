@@ -1,0 +1,23 @@
+<!-- Header -->
+<header id="header">
+        <div class="logo"><a href="/home">Helping Hands</a></div>
+        <a href="#menu">Menu</a>
+    </header>
+
+<!-- Nav -->
+<nav id="menu">
+        <ul class="links">
+            <li><a href="/home">Home</a></li>
+            <% if ( userid == 0 ) { %>
+                <li><a href="/login">Login</a></li>
+            <% } %>
+            
+            <% if ( userid != 0 ) { %>
+                <li><a href="/profile">Profile</a></li>
+            <% } %>
+
+            <li><a href="/register">Register</a></li>
+            <li><a href="/helpinghands/requests">Help Others</a></li>
+            <li><a href="/helpinghands">Ask For help</a></li>
+        </ul>
+    </nav>
