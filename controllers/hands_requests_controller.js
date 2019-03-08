@@ -5,13 +5,13 @@ var userdata = require('../userdata');
 
 module.exports = function(app)
 {
-    app.get('/helpinghands', urlparser, function(req, resp){
-        resp.render('Pages/helping_hands_intro',{userid: userdata.userid});
+    app.get('/helpinghands/requests', urlparser, function(req, resp){
+        resp.render('Pages/hands_requests_intro',{userid: userdata.userid});
     });
 
-    app.get('/listhelpinghands', urlparser, function(req, resp){
-        resp.render('helping_hands_list',{userid: userdata.userid});
+    app.get('/listrequests', urlparser, function(req, resp){
+        resp.render('hands_requests_list',{userid: userdata.userid});
     });
 
-    
+
 }

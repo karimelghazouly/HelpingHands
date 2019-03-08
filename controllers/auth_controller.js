@@ -15,11 +15,13 @@ module.exports = function(app)
 
     app.post('/login', urlparser, function(req, resp){
         data = req.body;
+
         usermodel.LoginUser(resp, data);
     });
 
     app.post('/register', urlparser, function(req, resp){
         data = req.body;
+        console.log(data);
         usermodel.SaveUser(resp, data);
     });
 }
