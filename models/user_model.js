@@ -1,15 +1,17 @@
 var bcrypt = require('bcrypt');
-var mongoose = require('mongoose');
+var mong = require('mongoose').Mongoose;
+var mongoose = new mong();
 mongoose.connect('mongodb+srv://karimelghazouly:helpinghands@helpinghands-3b0tx.mongodb.net/Authenticaiton?retryWrites=true', { useNewUrlParser: true });
 
 var userSchema = new mongoose.Schema({
     username: String,
     password: String,
-    email: String
+    email: String,
+    country: String
 });
 
 
-var user = mongoose.model('users', userSchema);
+var user = mongoose.model('user', userSchema);
 var userdata = require('../userdata');
 
 
@@ -45,7 +47,6 @@ CheckUsername = function(resp, newdata)
 }
 
 
-
 CheckEmail = function(resp, newdata)
 {
     user.findOne({email: newdata.email}, function(err, data){
@@ -77,6 +78,7 @@ SaverUserDB = function(resp, newdata)
             userdata.username = newdata.username;
             userdata.userpassword = newdata.password;
             userdata.userid = data._id;
+            userdata.usercountry = data.country;
             resp.redirect('/home');
         });
     })
@@ -84,11 +86,11 @@ SaverUserDB = function(resp, newdata)
 
 module.exports.LoginUser = function(resp, udata)
 {
+
     user.findOne({username: udata.username}, function(err, data){
         if(err)
             throw err;
 
-        console.log(data);
         if(data == {} || data == null)
         {
             resp.render("Pages/login",{message: "Invalid username"});
@@ -103,6 +105,7 @@ module.exports.LoginUser = function(resp, udata)
                 userdata.username = data.username;
                 userdata.userpassword = data.password;
                 userdata.userid = data._id;
+                userdata.usercountry = data.country;
                 resp.redirect("/home");
             }
         });
