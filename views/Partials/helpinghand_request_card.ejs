@@ -2,14 +2,14 @@
     <div class="box" >
         <div class="content">
             <header class="align-center">
-                <h4><%= obj.username %> is offering help ! </h4> 
+                <h4><%= obj.username %> needs your help ! </h4> 
                 <p></p>
                 <p style="color:black;"> Category :<%= obj.category %></h4>
                 <p style="color:black;"> Place: <%= obj.place %></p>
             </header>
             <div class="12u 12u$(medium) align-center" style = "height: 80%;" >
                 <p style = " overflow-wrap: break-word;">
-                        <%= obj.desc.substring(0,100) + " .." %>
+                        <%= obj.desc.substring(0,50) + " .." %>
                 </p>
             </div>
             <footer class="align-center">

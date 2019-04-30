@@ -7,7 +7,7 @@
 
 <html>
 	<head>
-		<title>Hielo by TEMPLATED</title>
+		<title>Helping Hands</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="/assets/css/styles.css" />
@@ -29,7 +29,7 @@
 			<% } %>
 			
 			<% if ( userid != 0 ) { %>
-				<li><a href="/profile">Profile</a></li>
+				<li><a href="/logout">Logout</a></li>
 			<% } %>
 
 			<li><a href="/register">Register</a></li>
@@ -41,13 +41,26 @@
 		<!-- Banner -->
 			<section class="banner full">
 				<article>
-					<img src="/images/hand.jpeg" alt="" />
-					<div class="inner">
-						<header>
-							<p>Start giving others a</p>
-							<h2>Helping Hand</h2>
-						</header>
-					</div>
+					
+					<% if ( typeof(request) == "undefined" ) { %>
+						<img src="/images/triple.jpg" alt="" />
+								<div class="inner">
+									<header>
+										<p>Start giving others a</p>
+										<h2>Helping Hand</h2>
+									</header>
+								</div>
+							<% } %>
+							<% if (  typeof(request) != "undefined" && request == true ) { %>
+								<img src="/images/hand.jpeg" alt="" />
+								<div class="inner">
+									<header>
+										<p>Start requesting a</p>
+										<h2>Helping Hand</h2>
+									</header>
+								</div>
+							<% } %>
+						
 				</article>
 			</section>
 
@@ -60,10 +73,19 @@
 						<% } %>
 						
 						<% if ( userid != 0 ) { %>
-							<header class="align-center">
-									<h2>You can start helping others now!</h2>
-							</header>
-							<form action="/helpinghands/new" method="POST">
+							
+							<% if ( typeof(request) == "undefined" ) { %>
+								<form action="/helpinghands/new" method="POST">
+								<header class="align-center">
+										<h2>You can start helping others now!</h2>
+								</header>
+							<% } %>
+							<% if (  typeof(request) != "undefined" && request == true ) { %>
+								<form action="/helpinghands/requests/new" method="POST">
+								<header class="align-center">
+										<h2>You can post your help request here and others will help you</h2>
+								</header>
+							<% } %>
 								<div class="row uniform">
 									
 									<div class="3u 3u$(xsmall)"></div>

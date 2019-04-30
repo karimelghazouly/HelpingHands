@@ -19,8 +19,8 @@
 			<section id="One" class="wrapper style3">
 				<div class="inner">
 					<header class="align-center">
-						<p>Looking for help ?</p>
-						<h2>You came to the right place !</h2>
+						<p>All these people</p>
+						<h2>Need your help!</h2>
 					</header>
 				</div>
 			</section>
@@ -28,26 +28,15 @@
 		<!-- Two -->
 			<section id="two" class="wrapper style2">
 				<div class="inner">
-					<div class="box">
 						<div class="content">
 							<header class="align-center">
-								<h2></h2>
-							</header>
-							<div class = "align-center">
-								<h3>
-									First check if someone is offering help in the matter you want help in.
-									<br>
-									didn't find what you are looking for ?
-									<br>
-									post a help hand request so all people willing to help will see it.
-								<h3>
-									
-								<a href="/helpinghands/requests/new" class="button special">Post a helping hand request</a>
-								<a href="/listhelpinghands" class="button special">View Helping Hands</a>
-							</div>
-
+                            </header>
+                            <div class="grid-style">
+                                <% helpingHandsRequests.forEach(function(obj){ %>
+                                    <%- include('../Partials/helpinghand_request_card.ejs', {obj: obj}); %>
+                                    <% }); %>
+                            </div>
 						</div>
-					</div>
 				</div>
 			</section>
 
