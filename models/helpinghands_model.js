@@ -6,11 +6,16 @@ var HelpingHandSchema = new mongoose.Schema({
     username: String,
     place: String,
     desc: String,
-    category: String
+    category: String,
+    request: {
+        type: Boolean,
+        default: false
+    }
 });
 
 
-var helpinghand = mongoose.model('helpinghand', HelpingHandSchema);
+module.exports.helpinghand = mongoose.model('helpinghand', HelpingHandSchema);
+helpinghand = mongoose.model('helpinghand', HelpingHandSchema);
 var userdata = require('../userdata');
 
 
@@ -20,17 +25,10 @@ module.exports.SaveHelpingHand = function(resp, newdata)
         if(err)
             throw err;
         
-        resp.redirect('/listhelpinghands');
-    });
-}
-
-module.exports.GetHelpingHands = function(resp)
-{
-    helpinghand.find({}, function(err, data){
-        if(err)
-            throw err;
-
-        resp.render('Pages/helpinghands_list',{helpinghands: data, userid:userdata.userid});
+        if(newdata.request == null)
+            resp.redirect('/listhelpinghands');
+        else
+            resp.redirect('/listrequests');
     });
 }
 
