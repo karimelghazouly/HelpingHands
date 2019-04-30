@@ -5,17 +5,26 @@ var userdata = require('../userdata');
 
 module.exports = function(app)
 {
-    app.get('/helpinghands', urlparser, function(req, resp){
-        resp.render('Pages/helping_hands_intro',{userid: userdata.userid});
+    app.get('/helpinghands', urlparser, function(req, resp){        
+        resp.render('Pages/hands_requests_intro',{userid: userdata.userid});
     });
     
     app.get('/listhelpinghands', urlparser, function(req, resp){
-        helpinghands_model.GetHelpingHands(resp);
+        helpinghands_model.helpinghand.find({request:false}, function(err, data){
+            if(err)
+                throw err;
+
+            resp.render('Pages/helpinghands_list',{helpinghands: data, userid:userdata.userid});
+        });
     });
     
     app.get('/helpinghands/new', urlparser, function(req, resp){
         resp.render('Pages/new_helpinghand',{userid: userdata.userid, usercountry: userdata.usercountry});
     });
+
+    app.get('/tran/:id/:dd/*',function(req, resp){
+    });
+
 
     app.post('/helpinghands/new', urlparser, function(req, resp){
         
