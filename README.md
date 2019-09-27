@@ -23,4 +23,6 @@ I learned about Mongodb and Mongoose, how to use Mongodb Atlas, how to build web
 # What's next for Helping Hands
 1) I could use Geo location to help people connect easier it will be easy with Geojson in Mongodb. 2) Chat between people who requested help and people offered help for them. 3) Email notification for people to notify them if someone needs their help or someone offered help for them. 4) More search filters.
 
-https://youtu.be/Ec-yNhF_DlQ
+## Demo Video 
+[![Watch the video](https://user-images.githubusercontent.com/24472871/65771282-25cb2800-e138-11e9-9344-fcc0c47c71aa.PNG)](https://youtu.be/Ec-yNhF_DlQ) 
+
