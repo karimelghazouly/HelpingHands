@@ -15,7 +15,7 @@ I built it with Node JS, EJS, Mongodb Atlas.
 I worked alone which was hard for me, as I didn't have much free time and I had a lack of experience.
 
 # Accomplishments that I'm proud of
-I was able to build this website even although I had no experience in Node JS or Mangodb.
+I was able to build this website even although I had no experience in Node JS or Mongodb.
 
 # What I learned
 I learned about Mongodb and Mongoose, how to use Mongodb Atlas, how to build websites using Node JS and EJS
